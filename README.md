@@ -16,7 +16,7 @@ Necesario identificar la ruta para cada software dentro de la ruta de la aplicac
 /scripts/sftp/FileZilla3
 /scripts/UNERINEXV60
 ```
-Esta aplicación presenta una marco de aplicación dentro de la identificación de el funciónamiento de una estación satelital para datos GNSS por unidad, de modo que al realizar la identificación de cada estación de el país o zona de estudio es posible generar un conjunto de datos estadístico de los satélites dentro de las órbitas terrestres sobre el área nacional, estado, estación de monitoreo, o estación de monitoreo remoto (Identifica los satélites mas cercanos a un punto o área).<br>
+Esta aplicación presenta una marco de aplicación dentro de la identificación de el funciónamiento de una estación satelital para datos GNSS por unidad, de modo que al realizar la identificación de cada estación de el país o zona de estudio es posible generar un conjunto de datos estadístico de los satélites dentro de las órbitas terrestres sobre el área nacional, estado, estación de monitoreo o estación de monitoreo remoto (Identifica los satélites mas cercanos a un punto o área).<br>
 Se plantea en el código la definición de las variables respectivas para cada transmisión de satélite, preámbulo para el cálculo de coordenadas de cada satélite (aún en desarrollo).
 
 MATRIZ DE DATOS GALILEO Y GPS (**Formato RINEX 2.11**):
