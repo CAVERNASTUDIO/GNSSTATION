@@ -30,7 +30,7 @@ void interfacestationGNSS()
         Console.WriteLine("1. Unerinex.");
         Console.WriteLine("2. Identificador de Señales");
         Console.WriteLine("3. Servidores SFTP");
-        Console.WriteLine("Selección de Opción (1-3), \"i\" para ver informacion o \"e\" para salir" );
+        Console.WriteLine("Selección de Opción (1-3), \"i\" para ver información o \"e\" para salir" );
         string respuesta = Console.ReadLine();
 
         if (respuesta!= null)
@@ -81,7 +81,7 @@ void interfacestationGNSS()
             }
             catch (Exception ex)
             {
-                Console.WriteLine($"Es necesario intalar o integrar el software dentro de el directorio compatible\n{ex}");
+                Console.WriteLine($"Es necesario instalar o/e integrar el software dentro de el directorio compatible\n{ex}");
                 Console.ReadLine();
             }
             break; 
@@ -89,8 +89,8 @@ void interfacestationGNSS()
             case "i":
             Console.Clear();
 			Console.WriteLine("================================\nGlobal Navigation Satellite System\n================================\n");
-            Console.WriteLine("Applicación prototipo para concurso:\n\n Hackathon en línea AEM\n \"HackAEMthonGNSS 2026\"\n     by García Aparicio Erik Alejandro\n\n\nESTACIÓN DE MONITOREO Y ANÁLISIS DE DATOS GNSS Copyrigth (c) 2026 Erik Alejandro García Aparicio.\n\n\n Para presentar ante:\n\nAgencia de Transformación Digital y Telecomunicaciones\nAgencia Espacial Mexicana (AEM)\nCentro Regional de Desarrollo Espacial en el Estado de Zacatecas (CREDES - zacatecas)");
-            Console.WriteLine("\n====================\nAVISO\n====================\n\n - Observación:\n1. Los datos descargados corresponden a datos accesibles públicamente, presentados por la institución INEGI de acceso gratuito; Es necesario identificar el modelo de dispositivo y formatos rinex usado por dispositivos privados o de uso restringido o cifrado y contar con acceso autorisado al material para su visualización así como contar con un formato estandar de compatibilidad adecuado para lectura y manipulación de datos.\nLos datos públicos accesibles se integran dentro de una tabla para identificarlos segun la estandarización EGNOS que identifica canales públicos de datos GNSS\n2. UNERINEXv6.0: Aplicación presentada por institución INEGI, compatible con formatos RINEX 2.11 de el \"IGS (International GNSS Service) Formats and Standards\" que permite generar un documento por cada tipo de información GNSS contenida en un conjunto de documentos.\n3. FileZilla: Software para acceso a servidores remotos de bases de datos, manejado bajo la licencia de uso GPL.\n4. En caso de que un servidor remoto no identifica usuario y contraseña, visitar la pagina web.");
+            Console.WriteLine("Aplicación prototipo para concurso:\n\n Hackathon en línea AEM\n \"HackAEMthonGNSS 2026\"\n     by García Aparicio Erik Alejandro\n\n\nESTACIÓN DE MONITOREO Y ANÁLISIS DE DATOS GNSS Copyrigth (c) 2026 Erik Alejandro García Aparicio.\n\n\n Para presentar ante:\n\nAgencia de Transformación Digital y Telecomunicaciones\nAgencia Espacial Mexicana (AEM)\nCentro Regional de Desarrollo Espacial en el Estado de Zacatecas (CREDES - zacatecas)");
+            Console.WriteLine("\n====================\nAVISO\n====================\n\n - Observación:\n1. Los datos descargados corresponden a datos accesibles públicamente, presentados por la institución INEGI de acceso gratuito; Es necesario identificar el modelo de dispositivo y formatos rinex usado por dispositivos privados o de uso restringido o cifrado y contar con acceso autorisado al material para su visualización así como contar con un formato estandar de compatibilidad adecuado para lectura y manipulación de datos.\nLos datos públicos accesibles se integran dentro de una tabla para identificarlos según la estandarización EGNOS que identifica canales públicos de datos GNSS\n2. UNERINEXv6.0: Aplicación presentada por institución INEGI, compatible con formatos RINEX 2.11 de el \"IGS (International GNSS Service) Formats and Standards\" que permite generar un documento por cada tipo de información GNSS contenida en un conjunto de documentos.\n3. FileZilla: Software para acceso a servidores remotos de bases de datos, manejado bajo la licencia de uso GPL.\n4. En caso de que un servidor remoto no identifica usuario y contraseña, visitar la pagina web.");
             Console.ReadLine();
             break; 
             
@@ -113,6 +113,7 @@ void interfacestationGNSS()
 
 void unerinex()
 {
+	
     string homeDrive = Environment.GetEnvironmentVariable("HOMEDRIVE");
     string ruta = $@"{homeDrive}\Windows";  
     Console.Clear();
@@ -186,7 +187,7 @@ void exeProgram(string p_program)
     }
 }
 
-// Calculos para integrar un documento de reconocimento de salida para identificación de señales satelitales
+// Cálculos para integrar un documento de reconocimento de salida para identificación de señales satelitales
 
 void formato()
 {
@@ -273,7 +274,7 @@ void señalGalileo(string p_archivo,string p_id)
     Console.WriteLine("================================\nLista de señales GNSS\n================================\n");
     Console.WriteLine($"{identificador}\n");
 
-    Console.WriteLine("Satelites en orbita reconocidos por la estación:");
+    Console.WriteLine("Satelites en órbita reconocidos por la estación:");
 	count=1;
     foreach (string satelite in satelites)
     {
@@ -318,7 +319,7 @@ void señalGps(string p_archivo,string p_id)
     Console.WriteLine("================================\nLista de señales GNSS\n================================\n");
     Console.WriteLine($"{identificador}\n");
 
-    Console.WriteLine("Satelites en orbita reconocidos por la estación:");
+    Console.WriteLine("Satelites en órbita reconocidos por la estación:");
 	count=1;
     foreach (string satelite in satelites)
     {
@@ -525,13 +526,20 @@ void coordenadasSatelite(string[] p_grafico,string[,] p_matrix,int p_noSatellite
 
 }
 
-void printEgnos(string p_document)
+void printEgnos(string p_document, int _impresoraDefault)
 {
     try
     {
-    Console.WriteLine("Identificador de impresora");
-    string impresora = Console.ReadLine();
-
+    string impresora = "";
+    if (_impresoraDefault == 1)
+        {
+            impresora= "[id impresora]";
+        }
+        else
+        {
+            Console.WriteLine("Identificador de impresora");
+            impresora = Console.ReadLine();
+        }
     string programbat = $"PRINT \"{impresora}\" \"{p_document}\""; // codigo de impresion para archivo .bat
     exeProgram(programbat);
     }
@@ -557,7 +565,7 @@ void alertaLife(string p_alerta, int p_num)
      
             File.AppendAllText(ruta,contenidoTexto);
             Console.WriteLine($"Alerta encontrada, datos almacenados en /Data{egnosAlerts[i]}.md\n\n imprimiendo documento...");
-            printEgnos(ruta);
+            printEgnos(ruta,1);
         }
     }
 }
@@ -582,7 +590,7 @@ void servidoressftp()
 
 void listaServidores()
 {
-	int n = 2;
+	int n = 3;
     string[,] station = new string[n,5];
     // host, puerto, usuario, pasword
     station[0,0]="geodesia2.inegi.org.mx";
@@ -592,11 +600,17 @@ void listaServidores()
     station[0,4]="https://www.inegi.org.mx/app/geo2/rgna/";
 
 	station[1,0]="cddis.gsfc.nasa.gov/gnss/data/daily";
-	station[1,1]="22";
+	station[1,1]="-";
 	station[1,2]="-";
 	station[1,3]="-";
 	station[1,4]="https://cddis.nasa.gov/archive/";
 
+
+	station[2,0]="https://www.esa.int/publications/about-us/publications/esa-tm-23-gnss-data-processing";
+	station[2,1]="-";
+	station[2,2]="-";
+	station[2,3]="-";
+	station[2,4]="https://gssc.esa.int/navipedia/GNSS_Book/ESA_GNSS-Book_TM-23_Vol_I.pdf";
 
     Console.WriteLine("Host\tPuerto\tuser\tpassword\tPagina Web");
 
