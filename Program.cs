@@ -532,14 +532,14 @@ void printEgnos(string p_document, int _impresoraDefault)
     {
     string impresora = "";
     if (_impresoraDefault == 1)
-        {
-            impresora= "[id impresora]";
-        }
-        else
-        {
-            Console.WriteLine("Identificador de impresora");
-            impresora = Console.ReadLine();
-        }
+    {
+        impresora= "[id impresora]";
+	}
+    else
+    {
+		Console.WriteLine("Identificador de impresora");
+        impresora = Console.ReadLine();
+    }
     string programbat = $"PRINT \"{impresora}\" \"{p_document}\""; // codigo de impresion para archivo .bat
     exeProgram(programbat);
     }
