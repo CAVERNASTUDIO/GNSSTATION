@@ -41,7 +41,7 @@ void interfacestationGNSS()
         switch (menu)
         {
             default:
-            Console.WriteLine("Opción no valida, intente nuevamente.\n\nPresiona \"enter\" para continuar");
+            Console.WriteLine("Opción no válida, intente nuevamente.\n\nPresiona \"enter\" para continuar");
             Console.ReadLine();
             break;
             
